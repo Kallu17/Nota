@@ -1,8 +1,10 @@
 import java.util.Scanner;
-import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.math.RoundingMode;
 
 public class Nota{
     public static void main(String[] args){
+        DecimalFormat nota = new DecimalFormat("##.00");
         int i, somatorio = 0;
         Scanner aux = new Scanner(System.in);
         
@@ -11,8 +13,8 @@ public class Nota{
             somatorio = somatorio + (aux.nextInt());
         }
       
-        BigDecimal media = (new BigDecimal(somatorio)).divide((new BigDecimal(i)), 2, BigDecimal.ROUND_HALF_EVEN);
+            double media = (double)(somatorio)/i;
         
-        System.out.println("Média Aritmética: "+media);
+        System.out.println("Média Aritmética: "+nota.format(media));
     }
 }
